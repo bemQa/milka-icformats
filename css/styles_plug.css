@@ -402,13 +402,13 @@ footer * {
 .plug {
     position: absolute;
     top: 26px;
-    left: -400px;
+    left: -370px;
     right: -500px;
     margin: auto;
-    width: 1671px;
+    width: 1661px;
     height: 870px;
     background: url(../img/plug.png) center no-repeat;
-    background-size: 1671px;
+    background-size: 1661px;
 }
 
 @media (max-width: 1000px) {
@@ -453,11 +453,11 @@ footer * {
 
     .plug {
         top: -56px;
-        left: -490px;
+        left: -470px;
         right: -500px;
-        width: 603px;
+        width: 598px;
         height: 733px;
         background: url(../img/plug-mob.png) center no-repeat;
-        background-size: 603px;
+        background-size: 598px;
     }
 }
