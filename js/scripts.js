@@ -117,6 +117,10 @@ if(document.getElementById('puzzle')) {
 
     var empx=0;
     var empy=0;
+    var mousex=0,mousey=0;
+    var mouseboardLeft=0,mouseboardTop=0;
+
+    var arr_highlight=[];
 
     initSlider();
 
@@ -125,6 +129,7 @@ if(document.getElementById('puzzle')) {
         shuffleBoard();
         solved=false;
         drawTiles();
+        highlight();
     }
 
     function initSlider() {
@@ -211,13 +216,43 @@ if(document.getElementById('puzzle')) {
         }
     };
 
-    // document.getElementById('puzzle').onmousemove = function(e) {
-    //     var boardTop = document.getElementById('puzzle').getBoundingClientRect().top + window.scrollY;
-    //     var boardLeft = document.getElementById('puzzle').getBoundingClientRect().left;
-    //     clickLoc.x = Math.floor((e.pageX - boardLeft) / tileSize);
-    //     clickLoc.y = Math.floor((e.pageY - boardTop) / tileSize);
-    //     console.log(e.pageX, e.pageY);
-    // }
+
+    //
+    function draw_highlight(el){
+        context.fillStyle='#FFDD00';
+        context.fillRect(el.x*tileSize, el.y*tileSize, tileSize, 5);
+        context.fillRect(el.x*tileSize, el.y*tileSize, 5, tileSize);
+        context.fillRect(el.x*tileSize+tileSize-5, el.y*tileSize, 5, tileSize);
+        context.fillRect(el.x*tileSize, el.y*tileSize+tileSize-5, tileSize, 5);
+
+    }
+
+    function highlight(){
+        arr_highlight=[];
+        for (var i = 0; i < tileCount; i++) {
+            for (var j = 0; j < tileCount; j++) {
+                if (distance(boardParts[i][j].x, boardParts[i][j].y, emptyLoc.x, emptyLoc.y) == 1) {
+                    arr_highlight.push(boardParts[i][j]);
+                }
+            }
+        }
+
+        document.getElementById('puzzle').onmousemove = function(e) {
+            drawTiles();
+            mouseboardTop = document.getElementById('puzzle').getBoundingClientRect().top + window.scrollY;
+            mouseboardLeft = document.getElementById('puzzle').getBoundingClientRect().left;
+            mousex = Math.floor((e.pageX - mouseboardLeft) / tileSize);
+            mousey = Math.floor((e.pageY - mouseboardTop) / tileSize);
+
+            for (var i = 0; i < arr_highlight.length; i++) {
+                    if(arr_highlight[i].x==mousex && arr_highlight[i].y==mousey){
+                        draw_highlight(arr_highlight[i]);
+                    }
+            }
+
+        }
+
+    }
 
     function setBoard() {
         boardParts = new Array(tileCount);
@@ -308,6 +343,7 @@ if(document.getElementById('puzzle')) {
             toLoc.y = fromLoc.y;
             checkSolved();
         //}
+        highlight();
     }
 
 var check_count=0;
