@@ -114,18 +114,21 @@ if(document.getElementById('puzzle')) {
 
     var boardParts;
     var goodBoard;
-    setBoard();
-    shuffleBoard();
+
+    var empx=0;
+    var empy=0;
 
     initSlider();
 
     function reInit() {
         setBoard();
-        drawTiles();
         shuffleBoard();
+        solved=false;
+        drawTiles();
     }
 
     function initSlider() {
+
         $(".game-slider").slick({
             dots: false,
             arrows: true,
@@ -176,19 +179,20 @@ if(document.getElementById('puzzle')) {
             $('.game-nav').removeClass('active');
             $(this).addClass('active');
             $(".game-slider").slick('slickGoTo', step_nav);
-            reInit();
         });
 
         $('.game-puzzle-win-btn').click(function(e) {
             e.preventDefault();
+            solved = false;
             var step_next = $(this).parents('.game-slide').data('step');
             if (step_next == 5) {
                 $(".game-slider").slick('slickGoTo', 0);
             } else {
                 $(".game-slider").slick('slickGoTo', step_next);
             }
-            reInit();
         });
+
+        reInit();
     }
 
     document.getElementById('puzzle').onclick = function(e) {
@@ -206,6 +210,14 @@ if(document.getElementById('puzzle')) {
             solved = false;
         }
     };
+
+    // document.getElementById('puzzle').onmousemove = function(e) {
+    //     var boardTop = document.getElementById('puzzle').getBoundingClientRect().top + window.scrollY;
+    //     var boardLeft = document.getElementById('puzzle').getBoundingClientRect().left;
+    //     clickLoc.x = Math.floor((e.pageX - boardLeft) / tileSize);
+    //     clickLoc.y = Math.floor((e.pageY - boardTop) / tileSize);
+    //     console.log(e.pageX, e.pageY);
+    // }
 
     function setBoard() {
         boardParts = new Array(tileCount);
@@ -228,17 +240,16 @@ if(document.getElementById('puzzle')) {
     }
 
     function shuffleBoard() {
-        for (var i = 0; i < tileCount; ++i) {
-            for (var j = 0; j < tileCount; ++j) {
+        for (var i = 0; i < tileCount; i++) {
+            for (var j = 0; j < tileCount; j++) {
                 k = parseInt(Math.random() * (tileCount - 1));
                 l = parseInt(Math.random() * (tileCount - 1));
-                temp = boardParts[i][j];
-                boardParts[i][j] = boardParts[k][l];
-                boardParts[k][l] = temp;
-
-                //temp = goodBoard[i][j];
-                //goodBoard[i][j] = goodBoard[k][l];
-                //goodBoard[k][l] = temp;
+                tempx = boardParts[i][j].x;
+                tempy = boardParts[i][j].y;
+                boardParts[i][j].x = boardParts[k][l].x;
+                boardParts[i][j].y = boardParts[k][l].y;
+                boardParts[k][l].x = tempx;
+                boardParts[k][l].y = tempy;
 
                 if (emptyLoc.x == boardParts[i][j].x && emptyLoc.y == boardParts[i][j].y) {
                     emptyLoc.x = boardParts[k][l].x;
@@ -247,8 +258,15 @@ if(document.getElementById('puzzle')) {
                     emptyLoc.x = boardParts[i][j].x;
                     emptyLoc.y = boardParts[i][j].y;
                 }
+                empx=emptyLoc.x;
+                empy=emptyLoc.y;
             }
         }
+
+        for (var i = 0; i < tileCount; ++i) {
+            for (var j = 0; j < tileCount; ++j) {
+                 console.log(boardParts[i][j].x + ' '+boardParts[i][j].y);
+        }}
     }
 
     function drawTiles() {
@@ -258,8 +276,15 @@ if(document.getElementById('puzzle')) {
                 var x = boardParts[i][j].x;
                 var y = boardParts[i][j].y;
                 if (i != emptyLoc.x || j != emptyLoc.y || solved == true) {
-                    context.drawImage(img, x * tileSize, y * tileSize, tileSize, tileSize,
-                        i * tileSize, j * tileSize, tileSize, tileSize);
+                    if(solved==true && i==emptyLoc.x && j==emptyLoc.y){
+                        console.log(x+' '+y);
+                        context.drawImage(img, emptyLoc.x * tileSize, emptyLoc.y * tileSize, tileSize, tileSize,
+                            i * tileSize, j * tileSize, tileSize, tileSize);
+                    }
+                    else{
+                        context.drawImage(img, x * tileSize, y * tileSize, tileSize, tileSize,
+                            i * tileSize, j * tileSize, tileSize, tileSize);
+                    }
                 }
             }
         }
@@ -270,23 +295,34 @@ if(document.getElementById('puzzle')) {
     }
 
     function slideTile(toLoc, fromLoc) {
-        if (!solved) {
+        //if (!solved) {
+
+                tempx = toLoc.x;
+                tempy = toLoc.y;
+
             boardParts[toLoc.x][toLoc.y].x = boardParts[fromLoc.x][fromLoc.y].x;
             boardParts[toLoc.x][toLoc.y].y = boardParts[fromLoc.x][fromLoc.y].y;
-            boardParts[fromLoc.x][fromLoc.y].x = tileCount - 1;
-            boardParts[fromLoc.x][fromLoc.y].y = tileCount - 1;
+            boardParts[fromLoc.x][fromLoc.y].x = tempx;
+            boardParts[fromLoc.x][fromLoc.y].y = tempy;
             toLoc.x = fromLoc.x;
             toLoc.y = fromLoc.y;
             checkSolved();
-        }
+        //}
     }
 
+var check_count=0;
+
     function checkSolved() {
+        console.log('check ' + check_count);
+        check_count++;
         var flag = true;
-        for (var i = 0; i < tileCount; ++i) {
-            for (var j = 0; j < tileCount; ++j) {
-                if (boardParts[i][j].x != goodBoard[i][j].x || boardParts[i][j].y != goodBoard[i][j].y) {
+        for (var i = 0; i < tileCount; i++) {
+            for (var j = 0; j < tileCount; j++) {
+                if ( !(i==emptyLoc.x && j==emptyLoc.y) && (boardParts[i][j].x != goodBoard[i][j].x || boardParts[i][j].y != goodBoard[i][j].y)) {
                     flag = false;
+                    console.log('fail at '+i+' '+j);
+                    solved = flag;
+                    return;
                 }
             }
         }
