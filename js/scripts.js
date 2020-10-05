@@ -19,7 +19,7 @@ $(document).ready(function() {
             $('.burger').removeClass('active');
         }
         elementClick = $(this).attr("href");
-        destination = $(elementClick).offset().top - 150;
+        destination = $(elementClick).offset().top - 50;
         $('html, body').animate({ scrollTop: destination }, 500, 'swing');
         return false;
     });
@@ -34,7 +34,7 @@ $(document).ready(function() {
                 $('header').removeClass('fixed');
             }
             $('.wrapper section').each(function() {
-                var destination = $(this).offset().top - 150;
+                var destination = $(this).offset().top - 50;
                 if (top >= destination) {
                     var id = $(this).attr('id');
                     $('.anchor[href^="#"]').removeClass('active');
@@ -131,7 +131,7 @@ if(document.getElementById('puzzle')) {
             arrows: true,
             slidesToShow: 1,
             slidesToScroll: 1,
-            infinite: false,
+            infinite: true,
             speed: 500,
             fade: true,
             cssEase: 'linear'
