@@ -79,7 +79,9 @@
             </section>
             <section id="choco-wafer" class="choco-wafer">
                 <div class="container">
-                    <div class="choco-wrapper">
+                    <div class="spacer s2"></div>
+                    <div class="spacer s0" id="trigger-choco-wafer"></div>
+                    <div id="choco-wafer-scroller" class="choco-wrapper">
                         <img src="img/decor-top-left.svg" class="decor-top-left" alt="">
                         <img src="img/decor-top-right.svg" class="decor-top-right" alt="">
                         <img src="img/decor-bottom-left.svg" class="decor-bottom-left" alt="">
@@ -88,28 +90,34 @@
                             <div class="choco-title">MILKA <br>Choco <br>Wafer</div>
                             <div class="choco-text">Многослойная вафля, покрытая молочным шоколадом, <br class="desktop-visible">подарит потрясающе нежный и яркий вкус. <br class="desktop-visible">Возьмите с собой и насладитесь во время перекуса!</div>
                         </div>
-                        <div class="choco-img">
-                            <img srcset="img/choco-wafer.png 1x, img/choco-wafer@2x.png 2x" alt="">
+                        <div id="imagesequence" class="choco-img choco-wafer-img">
+                            <!-- <img srcset="img/choco-wafer.png 1x, img/choco-wafer@2x.png 2x" alt=""> -->
+                            <img id="choco-wafer-img" src="img/choco-wafer/choco-wafer-1.png">
                         </div>
                     </div>
+                    <div class="spacer s2"></div>
                 </div>
             </section>
             <section class="separate"></section>
             <section id="choco-grain" class="choco-grain">
                 <div class="container">
+                    <div class="spacer s2"></div>
+                    <div class="spacer s0" id="trigger-choco-grain"></div>
                     <div class="choco-wrapper">
                         <img src="img/decor-top-left.svg" class="decor-top-left" alt="">
                         <img src="img/decor-top-right.svg" class="decor-top-right" alt="">
                         <img src="img/decor-bottom-left.svg" class="decor-bottom-left" alt="">
                         <img src="img/decor-bottom-right.svg" class="decor-bottom-right" alt="">
-                        <div class="choco-img">
-                            <img srcset="img/choco-grain.png 1x, img/choco-grain@2x.png 2x" alt="">
+                        <div id="imagesequence" class="choco-img choco-grain-img">
+                            <!-- <img srcset="img/choco-grain.png 1x, img/choco-grain@2x.png 2x" alt=""> -->
+                            <img id="choco-grain-img" src="img/choco-grain/choco-grain-1.png">
                         </div>
                         <div class="choco-info">
                             <div class="choco-title">MILKA <br>Choco <br>Grain</div>
                             <div class="choco-text">Много удовольствия в небольшой <br class="desktop-visible">упаковке – это сладкая новинка от Milka! <br class="desktop-visible">Хрустящее цельнозерновое печенье, щедро политое <br class="desktop-visible">шоколадом, уже ждет своего места в вашей сумочке!</div>
                         </div>
                     </div>
+                    <div class="spacer s2"></div>
                 </div>
             </section>
             <section id="game" class="game">
@@ -128,7 +136,7 @@
                                 <div class="canvas-container">
                                     <canvas id="puzzle" width="500" height="500"></canvas>
                                 </div>
-                                <div class="game-puzzle-win">
+                                <div id="puzzlesuccess1" class="game-puzzle-win">
                                     <div class="game-puzzle-win-text">Куда бы вы ни отправились, захватите с собой новинки Milka. Must-have сезона!</div>
                                     <a href="#!" class="game-puzzle-win-btn">Дальше</a>
                                 </div>
@@ -144,7 +152,7 @@
                                 <img src="img/decor-white-bottom-left.svg" class="decor-white-bottom-left" alt="">
                                 <img src="img/decor-white-bottom-right.svg" class="decor-white-bottom-right" alt="">
                                 <div class="canvas-container"></div>
-                                <div class="game-puzzle-win">
+                                <div id="puzzlesuccess2" class="game-puzzle-win">
                                     <div class="game-puzzle-win-text">С новинками Milka уютный вечер дома обеспечен!</div>
                                     <a href="#!" class="game-puzzle-win-btn">Дальше</a>
                                 </div>
@@ -160,7 +168,7 @@
                                 <img src="img/decor-white-bottom-left.svg" class="decor-white-bottom-left" alt="">
                                 <img src="img/decor-white-bottom-right.svg" class="decor-white-bottom-right" alt="">
                                 <div class="canvas-container"></div>
-                                <div class="game-puzzle-win">
+                                <div id="puzzlesuccess3" class="game-puzzle-win">
                                     <div class="game-puzzle-win-text">Когда нужно восполнить силы, перекусите с Milka!</div>
                                     <a href="#!" class="game-puzzle-win-btn">Дальше</a>
                                 </div>
@@ -176,7 +184,7 @@
                                 <img src="img/decor-white-bottom-left.svg" class="decor-white-bottom-left" alt="">
                                 <img src="img/decor-white-bottom-right.svg" class="decor-white-bottom-right" alt="">
                                 <div class="canvas-container"></div>
-                                <div class="game-puzzle-win">
+                                <div id="puzzlesuccess4" class="game-puzzle-win">
                                     <div class="game-puzzle-win-text">Работайте с радостью, а отдыхайте – с удовольствием!</div>
                                     <a href="#!" class="game-puzzle-win-btn">Дальше</a>
                                 </div>
@@ -192,7 +200,7 @@
                                 <img src="img/decor-white-bottom-left.svg" class="decor-white-bottom-left" alt="">
                                 <img src="img/decor-white-bottom-right.svg" class="decor-white-bottom-right" alt="">
                                 <div class="canvas-container"></div>
-                                <div class="game-puzzle-win">
+                                <div id="puzzlesuccess5" class="game-puzzle-win">
                                     <div class="game-puzzle-win-text">Собираетесь отдохнуть на природе? Не забудьте друзей и Milka</div>
                                     <a href="#!" class="game-puzzle-win-btn">Играть снова</a>
                                 </div>
@@ -256,6 +264,10 @@
 
     <script src="libs/jquery-3.4.1.min.js"></script>
     <script src="libs/slick.min.js"></script>
+    <script src="libs/scrollmagic/plugins/TweenMax.min.js"></script>
+    <script src="libs/scrollmagic/ScrollMagic.min.js"></script>
+    <!-- <script src="libs/scrollmagic/plugins/debug.addIndicators.min.js"></script> -->
+    <script src="libs/scrollmagic/plugins/animation.gsap.min.js"></script>
     <script src="js/scripts.js"></script>
 </body>
 </html>

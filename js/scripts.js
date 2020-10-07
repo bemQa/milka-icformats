@@ -297,11 +297,6 @@ if(document.getElementById('puzzle')) {
                 empy=emptyLoc.y;
             }
         }
-
-        for (var i = 0; i < tileCount; ++i) {
-            for (var j = 0; j < tileCount; ++j) {
-                 console.log(boardParts[i][j].x + ' '+boardParts[i][j].y);
-        }}
     }
 
     function drawTiles() {
@@ -312,7 +307,6 @@ if(document.getElementById('puzzle')) {
                 var y = boardParts[i][j].y;
                 if (i != emptyLoc.x || j != emptyLoc.y || solved == true) {
                     if(solved==true && i==emptyLoc.x && j==emptyLoc.y){
-                        console.log(x+' '+y);
                         context.drawImage(img, emptyLoc.x * tileSize, emptyLoc.y * tileSize, tileSize, tileSize,
                             i * tileSize, j * tileSize, tileSize, tileSize);
                     }
@@ -349,14 +343,12 @@ if(document.getElementById('puzzle')) {
 var check_count=0;
 
     function checkSolved() {
-        console.log('check ' + check_count);
         check_count++;
         var flag = true;
         for (var i = 0; i < tileCount; i++) {
             for (var j = 0; j < tileCount; j++) {
                 if ( !(i==emptyLoc.x && j==emptyLoc.y) && (boardParts[i][j].x != goodBoard[i][j].x || boardParts[i][j].y != goodBoard[i][j].y)) {
                     flag = false;
-                    console.log('fail at '+i+' '+j);
                     solved = flag;
                     return;
                 }
@@ -365,3 +357,70 @@ var check_count=0;
         solved = flag;
     }
 }
+
+// scrollmagic
+function scrollVideo() {
+    // define images
+    var images1 = [
+        "img/choco-wafer/choco-wafer-1.png",
+        "img/choco-wafer/choco-wafer-2.png",
+        "img/choco-wafer/choco-wafer-3.png",
+        "img/choco-wafer/choco-wafer-4.png",
+        "img/choco-wafer/choco-wafer-5.png",
+        "img/choco-wafer/choco-wafer-6.png",
+        "img/choco-wafer/choco-wafer-7.png"
+    ];
+
+    var images2 = [
+        "img/choco-grain/choco-grain-1.png",
+        "img/choco-grain/choco-grain-2.png",
+        "img/choco-grain/choco-grain-3.png",
+        "img/choco-grain/choco-grain-4.png",
+        "img/choco-grain/choco-grain-5.png",
+        "img/choco-grain/choco-grain-6.png",
+        "img/choco-grain/choco-grain-7.png"
+    ];
+
+    // TweenMax can tween any property of any object. We use this object to cycle through the array
+    var obj = {curImg: 0};
+
+    // create tween1
+    var tween1 = TweenMax.to(obj, 0.5,
+        {
+            curImg: images1.length - 1,
+            roundProps: "curImg",
+            immediateRender: true,          // load first image automatically
+            ease: Linear.easeNone,          // show every image the same ammount of time
+            onUpdate: function () {
+                $("#choco-wafer-img").attr("src", images1[obj.curImg]);
+            }
+        }
+    );
+
+    // create tween2
+    var tween2 = TweenMax.to(obj, 0.5,
+        {
+            curImg: images2.length - 1,
+            roundProps: "curImg",
+            immediateRender: true,
+            ease: Linear.easeNone,
+            onUpdate: function () {
+                $("#choco-grain-img").attr("src", images2[obj.curImg]);
+            }
+        }
+    );
+
+    // init controller
+    var controller = new ScrollMagic.Controller();
+
+    // build scene
+    var scene1 = new ScrollMagic.Scene({triggerElement: "#trigger-choco-wafer", duration: 450})
+                    .setTween(tween1)
+                    .addTo(controller);
+
+    var scene2 = new ScrollMagic.Scene({triggerElement: "#trigger-choco-grain", duration: 450})
+                    .setTween(tween2)
+                    .addTo(controller);
+}
+
+scrollVideo();
