@@ -28,7 +28,7 @@ $(document).ready(function() {
         $(window).on('scroll load', function() {
             var top = $(window).scrollTop();
             var href = $('.anchor').attr('href');
-            if (top >= 3600) {
+            if (top >= 1600) {
                 $('header').addClass('fixed');
             } else {
                 $('header').removeClass('fixed');
@@ -464,32 +464,32 @@ function scrollAnimation() {
         }, 1);
 
     // build scene
-    var scene_camera = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 3000})
+    var scene_camera = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 1500})
                     .setTween(tween_camera)
                     .addTo(controller);
-    var scene_focustl = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 3000})
+    var scene_focustl = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 1500})
                     .setTween(tween_focustl)
                     .addTo(controller);
-    var scene_phone = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 3000})
+    var scene_phone = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 1500})
                     .setTween(tween_phone)
                     .addTo(controller);
-    var scene_focustr = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 3000})
+    var scene_focustr = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 1500})
                     .setTween(tween_focustr)
                     .addTo(controller);
-    var scene_glasses = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 3000})
+    var scene_glasses = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 1500})
                     .setTween(tween_glasses)
                     .addTo(controller);
-    var scene_focusbr = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 3000})
+    var scene_focusbr = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 1500})
                     .setTween(tween_focusbr)
                     .addTo(controller);
-    var scene_cup = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 3000})
+    var scene_cup = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 1500})
                     .setTween(tween_cup)
                     .addTo(controller);
-    var scene_focusbl = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 3000})
+    var scene_focusbl = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 1500})
                     .setTween(tween_focusbl)
                     .addTo(controller);
 
-    var pin_scene = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 3500})
+    var pin_scene = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 2000})
                     .setPin("#pin")
                     .addTo(controller);
 }
