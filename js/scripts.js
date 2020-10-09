@@ -377,7 +377,12 @@ var check_count=0;
 var controller = new ScrollMagic.Controller();
 
 $(window).on('load', function() {
-    $('.animation1, .animation2').fadeIn();
+    $('.animation1, .animation2').delay(1000).fadeIn();
+
+    setTimeout(function(){
+        $('body').removeClass('no-scrolling');
+        $('.preloader').fadeOut();
+    },500);
 });
 
 function scrollAnimation() {

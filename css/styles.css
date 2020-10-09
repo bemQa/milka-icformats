@@ -1238,8 +1238,8 @@ footer * {
     left: 0;
     right: 0;
     margin: auto;
-    width: 155px;
-    height: 150px;
+    width: 227px;
+    height: 132px;
     overflow: hidden;
 }
 
@@ -1253,7 +1253,7 @@ footer * {
     width: 100%;
     height: 100%;
     margin: auto;
-    background: #E9E9E9;
+    background: #5D4C87;
     z-index: 0;
 }
 
@@ -1270,17 +1270,17 @@ footer * {
     right: 0;
     bottom: 0;
     height: 0;
-    width: 155px;
+    width: 212px;
     margin: auto;
     overflow: hidden;
     -webkit-transition: height .35s;
     transition: height .35s;
-    animation: woa 3s infinite;
+    animation: woa 2.3s infinite;
     z-index: 1;
 }
 
 .woa:hover .hidwoa {
-    height: 110%;
+    height: 103%;
 }
 
 @keyframes woa {
@@ -1289,7 +1289,7 @@ footer * {
     }
 
     50% {
-       height: 110%; 
+       height: 103%; 
     }
 }
 
