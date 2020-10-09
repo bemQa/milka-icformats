@@ -28,7 +28,7 @@ $(document).ready(function() {
         $(window).on('scroll load', function() {
             var top = $(window).scrollTop();
             var href = $('.anchor').attr('href');
-            if (top >= 50) {
+            if (top >= 3600) {
                 $('header').addClass('fixed');
             } else {
                 $('header').removeClass('fixed');
@@ -51,6 +51,19 @@ $(document).ready(function() {
     $('.close-edadil').on('click', function(e) {
         e.preventDefault();
         $('.edadil').removeClass('active');
+    });
+
+    $('.how-play').click(function(e){
+        e.preventDefault();
+        $(this).next().toggleClass('active');
+
+        $('body').on('click', function(e) {
+            var div = $('.tooltip, .how-play');
+
+            if (!div.is(e.target) && div.has(e.target).length === 0) {
+                div.removeClass('active');
+            }
+        });
     });
 });
 
@@ -359,6 +372,132 @@ var check_count=0;
 }
 
 // scrollmagic
+
+// init controller
+var controller = new ScrollMagic.Controller();
+
+$(window).on('load', function() {
+    $('.animation1, .animation2').fadeIn();
+});
+
+function scrollAnimation() {
+    // build tween
+    var tween_camera = TweenMax.staggerFromTo(".camera", 1, 
+        {
+            top: -400,
+            left: -1500
+        }, 
+        {
+            top: -350,
+            left: -1000, 
+            ease: Linear.easeNone
+        }, 1);
+    var tween_focustl = TweenMax.staggerFromTo(".focus-white-top-left", 1, 
+        {
+            top: -290,
+            left: 0
+        }, 
+        {
+            top: -280,
+            left: 300, 
+            ease: Linear.easeNone
+        }, 1);
+    var tween_phone = TweenMax.staggerFromTo(".phone", 1, 
+        {
+            top: -400,
+            right: -1610
+        }, 
+        {
+            top: -350,
+            right: -1100, 
+            ease: Linear.easeNone
+        }, 1);
+    var tween_focustr = TweenMax.staggerFromTo(".focus-white-top-right", 1, 
+        {
+            top: -290,
+            right: 0
+        }, 
+        {
+            top: -280,
+            right: 300, 
+            ease: Linear.easeNone
+        }, 1);
+    var tween_glasses = TweenMax.staggerFromTo(".glasses", 1, 
+        {
+            bottom: -300,
+            right: -1520
+        }, 
+        {
+            bottom: -240,
+            right: -1200, 
+            ease: Linear.easeNone
+        }, 1);
+    var tween_focusbr = TweenMax.staggerFromTo(".focus-white-bottom-right", 1, 
+        {
+            bottom: 0,
+            right: 0
+        }, 
+        {
+            bottom: 190,
+            right: 300, 
+            ease: Linear.easeNone
+        }, 1);
+    var tween_cup = TweenMax.staggerFromTo(".cup", 1, 
+        {
+            bottom: -100,
+            left: -1520
+        }, 
+        {
+            bottom: -80,
+            left: -1100, 
+            ease: Linear.easeNone
+        }, 1);
+    var tween_focusbl = TweenMax.staggerFromTo(".focus-white-bottom-left", 1, 
+        {
+            bottom: 0,
+            left: 0
+        }, 
+        {
+            bottom: 190,
+            left: 300, 
+            ease: Linear.easeNone
+        }, 1);
+
+    // build scene
+    var scene_camera = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 3000})
+                    .setTween(tween_camera)
+                    .addTo(controller);
+    var scene_focustl = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 3000})
+                    .setTween(tween_focustl)
+                    .addTo(controller);
+    var scene_phone = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 3000})
+                    .setTween(tween_phone)
+                    .addTo(controller);
+    var scene_focustr = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 3000})
+                    .setTween(tween_focustr)
+                    .addTo(controller);
+    var scene_glasses = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 3000})
+                    .setTween(tween_glasses)
+                    .addTo(controller);
+    var scene_focusbr = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 3000})
+                    .setTween(tween_focusbr)
+                    .addTo(controller);
+    var scene_cup = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 3000})
+                    .setTween(tween_cup)
+                    .addTo(controller);
+    var scene_focusbl = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 3000})
+                    .setTween(tween_focusbl)
+                    .addTo(controller);
+
+    var pin_scene = new ScrollMagic.Scene({triggerElement: "#trigger-main-animation", duration: 3500})
+                    .setPin("#pin")
+                    .addTo(controller);
+}
+
+if (window.innerWidth > 1000) {
+    scrollAnimation();
+}
+
 function scrollVideo() {
     // define images
     var images1 = [
@@ -389,8 +528,8 @@ function scrollVideo() {
         {
             curImg: images1.length - 1,
             roundProps: "curImg",
-            immediateRender: true,          // load first image automatically
-            ease: Linear.easeNone,          // show every image the same ammount of time
+            immediateRender: true,
+            ease: Linear.easeNone,
             onUpdate: function () {
                 $("#choco-wafer-img").attr("src", images1[obj.curImg]);
             }
@@ -409,9 +548,6 @@ function scrollVideo() {
             }
         }
     );
-
-    // init controller
-    var controller = new ScrollMagic.Controller();
 
     // build scene
     var scene1 = new ScrollMagic.Scene({triggerElement: "#trigger-choco-wafer", duration: 450})

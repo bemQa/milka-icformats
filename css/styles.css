@@ -480,6 +480,7 @@ header.fixed,
 }
 
 footer {
+    position: relative;
     min-height: 174px;
     background: url(../img/footer-bg.png) center no-repeat;
     background-size: cover;
@@ -547,17 +548,18 @@ footer * {
 
 .main-block {
     min-height: 790px;
+    margin-top: 88px;
 }
 
 .main-block::before {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     margin: auto;
     width: 100%;
-    height: 809px;
+    height: 103%;
     background: url(../img/plug-bg.png) center 0 repeat-x;
     background-size: auto 100%;
 }
@@ -583,7 +585,7 @@ footer * {
     align-items: center;
     min-height: 770px;
     height: 100%;
-    z-index: 1;
+    z-index: 2;
 }
 
 .choco-wafer::before,
@@ -663,6 +665,7 @@ footer * {
 }
 
 .separate {
+    position: relative;
     width: 100%;
     height: 180px;
     background: url(../img/separate-bg.png) center no-repeat;
@@ -753,6 +756,7 @@ footer * {
     max-width: 560px;
     width: 100%;
     margin: auto;
+    text-align: center;
 }
 
 .game-puzzle {
@@ -868,11 +872,53 @@ footer * {
 }
 
 .game-text {
+    position: relative;
+    display: inline-block;
     font-size: 30px;
     line-height: 38px;
     text-align: center;
     color: #fff;
     margin-bottom: 5px;
+    padding-right: 35px;
+}
+
+.how-play {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 27px;
+    height: 28px;
+    margin: auto;
+    background: url(../img/how.svg) center no-repeat;
+    background-size: contain;
+}
+
+.tooltip {
+    position: absolute;
+    top: 10px;
+    right: -42px;
+    display: flex;
+    -ms-align-items: center;
+    align-items: center;
+    justify-content: center;
+    width: 285px;
+    height: 145px;
+    background: url(../img/tooltip-bg.svg) center no-repeat;
+    background-size: contain;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    color: #39206C;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .2s linear;
+    z-index: 1;
+}
+
+.tooltip.active {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .game-step {
@@ -1044,6 +1090,215 @@ footer * {
     margin-bottom: 20px;
 }
 
+.animation1 {
+    position: absolute;
+    margin: auto;
+}
+
+.camera {
+    top: -88px;
+    left: -1500px;
+    right: 0;
+    width: 437px;
+}
+
+.phone {
+    top: -88px;
+    left: 0;
+    right: -1610px;
+    width: 522px;
+}
+
+.glasses {
+    bottom: -250px;
+    left: 0;
+    right: -1520px;
+    width: 611px;
+}
+
+.cup {
+    bottom: -40px;
+    left: -1520px;
+    right: 0;
+    width: 415px;
+}
+
+.animation2 {
+    position: absolute;
+    width: 80px;
+}
+
+.focus-white-top-left {
+    top: 0;
+    left: 0;
+}
+
+.focus-white-top-right {
+    top: 0;
+    right: 0;
+}
+
+.focus-white-bottom-left {
+    bottom: 0;
+    left: 0;
+}
+
+.focus-white-bottom-right {
+    bottom: 0;
+    right: 0;
+}
+
+.pin {
+    display: flex;
+    align-items: flex-end;
+    min-height: 300px;
+}
+
+.main-composition {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.composition {
+    position: relative;
+    max-width: 617px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.composition img {
+    position: absolute;
+    top: -450px;
+}
+
+.main-title1 {
+    position: relative;
+    font-family: Georgia;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    width: 298px;
+    height: 93px;
+    margin: 0 auto;
+    padding: 26px 0;
+    background: url(../img/main-title-bg.svg) center no-repeat;
+    background-size: contain;
+}
+
+.main-title2 {
+    font-family: Georgia;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 45px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.main-title3 {
+    font-family: Georgia;
+    font-style: italic;
+    font-size: 40px;
+    line-height: 45px;
+    text-align: center;
+    color: #fff;
+}
+
+.spacer {
+    min-height: 50px;
+}
+
+.animation1, 
+.animation2 {
+    display: none;
+}
+
+.preloader {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    background: #7D68AB;
+    z-index: 999;
+}
+
+.woa {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 155px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.woa::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    background: #E9E9E9;
+    z-index: 0;
+}
+
+.preload-logo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.hidwoa {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 0;
+    width: 155px;
+    margin: auto;
+    overflow: hidden;
+    -webkit-transition: height .35s;
+    transition: height .35s;
+    animation: woa 3s infinite;
+    z-index: 1;
+}
+
+.woa:hover .hidwoa {
+    height: 110%;
+}
+
+@keyframes woa {
+    0%, 100% {
+        height: 0;
+    }
+
+    50% {
+       height: 110%; 
+    }
+}
+
+@media (max-height: 720px) {
+    .pin {
+        transform: scale(.8);
+    }
+}
+
 @media (max-width: 1366px) {
     .choco-wafer::before,
     .choco-grain::before {
@@ -1130,10 +1385,12 @@ footer * {
 
     .main-block {
         min-height: 680px;
+        margin-top: 0;
     }
 
     .main-block::before {
-        top: -108px;
+        position: absolute;
+        height: 700px;
         background-size: 1000px 100%;
     }
 
@@ -1263,6 +1520,17 @@ footer * {
     .game-text {
         font-size: 16px;
         line-height: 22px;
+        padding-right: 25px;
+    }
+
+    .how-play {
+        width: 17px;
+        height: 18px;
+    }
+
+    .tooltip {
+        top: -5px;
+        right: -47px;
     }
 
     .decor-white-top-left,
@@ -1371,6 +1639,10 @@ footer * {
     .main-cookie-h2 {
         font-size: 21px;
         line-height: 28px;
+    }
+
+    .pin {
+        transform: scale(1);
     }
 }
 

@@ -45,6 +45,17 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+    <!-- <div class="preloader">
+        <div class="woa">
+            <div class="preload-logo">
+                <img src="img/preloader/start.png" alt="" class="preload-logo">
+            </div>
+            <div class="hidwoa">
+                <img src="img/preloader/preloader-bg.svg" alt="" class="preload-bg">
+            </div>
+        </div>
+    </div> -->
+
     <div class="wrapper">
         <div class="content">
             <header>
@@ -63,8 +74,29 @@
                 </div>
             </header>
             <section id="main-block" class="main-block">
-                <div class="container">
-                    <div class="plug"></div>
+                <div id="trigger-main-animation" class="container">
+                    <div class="plug mobile-visible"></div>
+                    <div id="pin" class="pin desktop-visible">
+                        <div class="main-animation">
+                            <img src="img/camera.png" class="animation1 camera" alt="">
+                            <img src="img/phone.png" class="animation1 phone" alt="">
+                            <img src="img/glasses.png" class="animation1 glasses" alt="">
+                            <img src="img/cup.png" class="animation1 cup" alt="">
+
+                            <img src="img/decor-white-top-left.svg" class="animation2 focus-white-top-left" alt="">
+                            <img src="img/decor-white-top-right.svg" class="animation2 focus-white-top-right" alt="">
+                            <img src="img/decor-white-bottom-left.svg" class="animation2 focus-white-bottom-left" alt="">
+                            <img src="img/decor-white-bottom-right.svg" class="animation2 focus-white-bottom-right" alt="">
+                        </div>
+                        <div class="main-composition">
+                            <div class="composition">
+                                <img src="img/composition.png" alt="">
+                            </div>
+                            <div class="main-title1">Новый</div>
+                            <div class="main-title2">Формат удовольствия</div>
+                            <div class="main-title3">Возьмите с собой</div>
+                        </div>
+                    </div>
                     <div class="edadil">
                         <a href="#!" class="close-edadil">закрыть</a>
                         <div class="edadil-info">
@@ -76,12 +108,11 @@
                         </a>
                     </div>
                 </div>
+                <div class="spacer"></div>
             </section>
             <section id="choco-wafer" class="choco-wafer">
                 <div class="container">
-                    <div class="spacer s2"></div>
-                    <div class="spacer s0" id="trigger-choco-wafer"></div>
-                    <div id="choco-wafer-scroller" class="choco-wrapper">
+                    <div id="trigger-choco-wafer" class="choco-wrapper">
                         <img src="img/decor-top-left.svg" class="decor-top-left" alt="">
                         <img src="img/decor-top-right.svg" class="decor-top-right" alt="">
                         <img src="img/decor-bottom-left.svg" class="decor-bottom-left" alt="">
@@ -90,26 +121,21 @@
                             <div class="choco-title">MILKA <br>Choco <br>Wafer</div>
                             <div class="choco-text">Многослойная вафля, покрытая молочным шоколадом, <br class="desktop-visible">подарит потрясающе нежный и яркий вкус. <br class="desktop-visible">Возьмите с собой и насладитесь во время перекуса!</div>
                         </div>
-                        <div id="imagesequence" class="choco-img choco-wafer-img">
-                            <!-- <img srcset="img/choco-wafer.png 1x, img/choco-wafer@2x.png 2x" alt=""> -->
+                        <div class="choco-img choco-wafer-img">
                             <img id="choco-wafer-img" src="img/choco-wafer/choco-wafer-1.png">
                         </div>
                     </div>
-                    <div class="spacer s2"></div>
                 </div>
             </section>
             <section class="separate"></section>
             <section id="choco-grain" class="choco-grain">
                 <div class="container">
-                    <div class="spacer s2"></div>
-                    <div class="spacer s0" id="trigger-choco-grain"></div>
-                    <div class="choco-wrapper">
+                    <div id="trigger-choco-grain" class="choco-wrapper">
                         <img src="img/decor-top-left.svg" class="decor-top-left" alt="">
                         <img src="img/decor-top-right.svg" class="decor-top-right" alt="">
                         <img src="img/decor-bottom-left.svg" class="decor-bottom-left" alt="">
                         <img src="img/decor-bottom-right.svg" class="decor-bottom-right" alt="">
-                        <div id="imagesequence" class="choco-img choco-grain-img">
-                            <!-- <img srcset="img/choco-grain.png 1x, img/choco-grain@2x.png 2x" alt=""> -->
+                        <div class="choco-img choco-grain-img">
                             <img id="choco-grain-img" src="img/choco-grain/choco-grain-1.png">
                         </div>
                         <div class="choco-info">
@@ -117,7 +143,6 @@
                             <div class="choco-text">Много удовольствия в небольшой <br class="desktop-visible">упаковке – это сладкая новинка от Milka! <br class="desktop-visible">Хрустящее цельнозерновое печенье, щедро политое <br class="desktop-visible">шоколадом, уже ждет своего места в вашей сумочке!</div>
                         </div>
                     </div>
-                    <div class="spacer s2"></div>
                 </div>
             </section>
             <section id="game" class="game">
@@ -127,7 +152,11 @@
                     <div class="game-slider">
                         <div class="game-slide" data-step="1">
                             <div class="game-name">В дороге</div>
-                            <div class="game-text">Соберите картинку</div>
+                            <div class="game-text">
+                                Соберите картинку 
+                                <a href="#!" class="how-play"></a>
+                                <div class="tooltip">Нажмите на выбранный квадрат <br>картинки, чтобы передвинуть его <br>в пустую ячейку</div>
+                            </div>
                             <div class="game-puzzle">
                                 <img src="img/decor-white-top-left.svg" class="decor-white-top-left" alt="">
                                 <img src="img/decor-white-top-right.svg" class="decor-white-top-right" alt="">
@@ -145,7 +174,11 @@
                         </div>
                         <div class="game-slide" data-step="2">
                             <div class="game-name">Дома</div>
-                            <div class="game-text">Соберите картинку</div>
+                            <div class="game-text">
+                                Соберите картинку 
+                                <a href="#!" class="how-play"></a>
+                                <div class="tooltip">Нажмите на выбранный квадрат <br>картинки, чтобы передвинуть его <br>в пустую ячейку</div>
+                            </div>
                             <div class="game-puzzle">
                                 <img src="img/decor-white-top-left.svg" class="decor-white-top-left" alt="">
                                 <img src="img/decor-white-top-right.svg" class="decor-white-top-right" alt="">
@@ -161,7 +194,11 @@
                         </div>
                         <div class="game-slide" data-step="3">
                             <div class="game-name">На учебе</div>
-                            <div class="game-text">Соберите картинку</div>
+                            <div class="game-text">
+                                Соберите картинку 
+                                <a href="#!" class="how-play"></a>
+                                <div class="tooltip">Нажмите на выбранный квадрат <br>картинки, чтобы передвинуть его <br>в пустую ячейку</div>
+                            </div>
                             <div class="game-puzzle">
                                 <img src="img/decor-white-top-left.svg" class="decor-white-top-left" alt="">
                                 <img src="img/decor-white-top-right.svg" class="decor-white-top-right" alt="">
@@ -177,7 +214,11 @@
                         </div>
                         <div class="game-slide" data-step="4">
                             <div class="game-name">На работе</div>
-                            <div class="game-text">Соберите картинку</div>
+                            <div class="game-text">
+                                Соберите картинку 
+                                <a href="#!" class="how-play"></a>
+                                <div class="tooltip">Нажмите на выбранный квадрат <br>картинки, чтобы передвинуть его <br>в пустую ячейку</div>
+                            </div>
                             <div class="game-puzzle">
                                 <img src="img/decor-white-top-left.svg" class="decor-white-top-left" alt="">
                                 <img src="img/decor-white-top-right.svg" class="decor-white-top-right" alt="">
@@ -193,7 +234,11 @@
                         </div>
                         <div class="game-slide" data-step="5">
                             <div class="game-name">На природе</div>
-                            <div class="game-text">Соберите картинку</div>
+                            <div class="game-text">
+                                Соберите картинку 
+                                <a href="#!" class="how-play"></a>
+                                <div class="tooltip">Нажмите на выбранный квадрат <br>картинки, чтобы передвинуть его <br>в пустую ячейку</div>
+                            </div>
                             <div class="game-puzzle">
                                 <img src="img/decor-white-top-left.svg" class="decor-white-top-left" alt="">
                                 <img src="img/decor-white-top-right.svg" class="decor-white-top-right" alt="">
@@ -266,7 +311,7 @@
     <script src="libs/slick.min.js"></script>
     <script src="libs/scrollmagic/plugins/TweenMax.min.js"></script>
     <script src="libs/scrollmagic/ScrollMagic.min.js"></script>
-    <!-- <script src="libs/scrollmagic/plugins/debug.addIndicators.min.js"></script> -->
+    <script src="libs/scrollmagic/plugins/debug.addIndicators.min.js"></script>
     <script src="libs/scrollmagic/plugins/animation.gsap.min.js"></script>
     <script src="js/scripts.js"></script>
 </body>
