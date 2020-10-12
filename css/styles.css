@@ -1384,13 +1384,13 @@ footer * {
     }
 
     .main-block {
-        min-height: 680px;
+        min-height: 560px;
         margin-top: 0;
     }
 
     .main-block::before {
         position: absolute;
-        height: 700px;
+        height: 720px;
         background-size: 1000px 100%;
     }
 
@@ -1643,6 +1643,240 @@ footer * {
 
     .pin {
         transform: scale(1);
+        margin-top: 150px;
+    }
+
+    .composition {
+        max-width: 320px;
+        margin-bottom: 70px;
+    }
+
+    .composition img {
+        position: relative;
+        top: auto;
+    }
+
+    .main-title1 {
+        font-size: 30px;
+        width: 200px;
+        height: 62px;
+        padding: 16px 0;
+    }
+
+    .main-title2 {
+        font-size: 30px;
+        line-height: 34px;
+        margin-bottom: 6px;
+    }
+
+    .main-title3 {
+        font-size: 30px;
+        line-height: 34px;
+    }
+
+    .animation2 {
+        width: 56px;
+    }
+
+    /*.animation1,
+    .animation2 {
+        transition: all .2s linear;
+    }*/
+
+    .focus-white-top-left {
+        top: 15px;
+        left: 30px;
+        animation: 1s focus-white-top-left linear;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+    }
+
+    .focus-white-top-left.css {
+        top: -75px;
+        left: 0;
+    }
+
+    .focus-white-top-right {
+        top: 15px;
+        right: 30px;
+        animation: 1s focus-white-top-right linear;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+    }
+
+    .focus-white-top-right.css {
+        top: -75px;
+        right: 0;
+    }
+
+    .focus-white-bottom-left {
+        bottom: 240px;
+        left: 30px;
+        animation: 1s focus-white-bottom-left linear;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+    }
+
+    .focus-white-bottom-left.css {
+        bottom: 170px;
+        left: 0;
+    }
+
+    .focus-white-bottom-right {
+        bottom: 240px;
+        right: 30px;
+        animation: 1s focus-white-bottom-right linear;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+    }
+
+    .focus-white-bottom-right.css {
+        bottom: 170px;
+        right: 0;
+    }
+
+    .camera {
+        top: -100px;
+        left: -325px;
+        width: 260px;
+        animation: 1s camera linear;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+    }
+
+    .camera.css {
+        top: -170px;
+        left: -480px;
+    }
+
+    .phone {
+        top: -140px;
+        right: -325px;
+        width: 240px;
+        animation: 1s phone linear;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+    }
+
+    .phone.css {
+        top: -140px;
+        right: -450px;
+    }
+
+    .glasses {
+        bottom: 65px;
+        right: -270px;
+        width: 250px;
+        animation: 1s glasses linear;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+    }
+
+    .glasses.css {
+        bottom: 0;
+        right: -450px;
+    }
+
+    .cup {
+        bottom: 80px;
+        left: -350px;
+        width: 230px;
+        animation: 1s cup linear;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+    }
+
+    .cup.css{
+        bottom: 40px;
+        left: -480px;
+    }
+
+    @keyframes camera {
+        from {
+            top: -170px;
+            left: -480px;  
+        }
+        to {
+            top: -100px;
+            left: -325px;
+        }
+    }
+
+    @keyframes phone {
+        from {
+            top: -140px;
+            right: -450px;  
+        }
+        to {
+            top: -140px;
+            right: -325px;
+        }
+    }
+
+    @keyframes glasses {
+        from {
+            bottom: 0;
+            right: -450px;  
+        }
+        to {
+            bottom: 65px;
+            right: -270px;
+        }
+    }
+
+    @keyframes cup {
+        from {
+            bottom: 40px;
+            left: -480px;  
+        }
+        to {
+            bottom: 80px;
+            left: -350px;
+        }
+    }
+
+    @keyframes focus-white-top-left {
+        from {
+            top: -75px;
+            left: 0;  
+        }
+        to {
+            top: 15px;
+            left: 30px;
+        }
+    }
+
+    @keyframes focus-white-top-right {
+        from {
+            top: -75px;
+            right: 0;  
+        }
+        to {
+            top: 15px;
+            right: 30px;
+        }
+    }
+
+    @keyframes focus-white-bottom-left {
+        from {
+            bottom: 170px;
+            left: 0;  
+        }
+        to {
+            bottom: 240px;
+            left: 30px;
+        }
+    }
+
+    @keyframes focus-white-bottom-right {
+        from {
+            bottom: 170px;
+            right: 0;
+        }
+        to {
+            bottom: 240px;
+            right: 30px;
+        }
     }
 }
 

@@ -53,18 +53,33 @@ $(document).ready(function() {
         $('.edadil').removeClass('active');
     });
 
-    $('.how-play').click(function(e){
-        e.preventDefault();
-        $(this).next().toggleClass('active');
+    if (window.innerWidth > 1000) {
+        $('.how-play').mousemove(function(e){
+            e.preventDefault();
+            $(this).next().addClass('active');
 
-        $('body').on('click', function(e) {
-            var div = $('.tooltip, .how-play');
+            $('body').mousemove(function(e) {
+                var div = $('.tooltip, .how-play');
 
-            if (!div.is(e.target) && div.has(e.target).length === 0) {
-                div.removeClass('active');
-            }
+                if (!div.is(e.target) && div.has(e.target).length === 0) {
+                    div.removeClass('active');
+                }
+            });
         });
-    });
+    } else {
+        $('.how-play').click(function(e){
+            e.preventDefault();
+            $(this).next().toggleClass('active');
+
+            $('body').on('click', function(e) {
+                var div = $('.tooltip, .how-play');
+
+                if (!div.is(e.target) && div.has(e.target).length === 0) {
+                    div.removeClass('active');
+                }
+            });
+        });
+    }
 });
 
 // game
